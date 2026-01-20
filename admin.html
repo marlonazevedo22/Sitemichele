@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo | Michele Almeida</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.png" type="image/png">
+    
+    <style>
+        /* Estilos do Painel */
+        body { background-color: #f4f4f4; }
+        .admin-container { max-width: 1000px; margin: 50px auto; padding: 20px; background: #fff; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        h1 { text-align: center; margin-bottom: 30px; color: var(--vinho); font-family: 'Cardo', serif; }
+        
+        .publish-box {
+            background: #fffbf0; 
+            padding: 25px; 
+            border-radius: 10px; 
+            margin-bottom: 40px; 
+            border: 2px solid var(--dourado);
+        }
+
+        input, textarea {
+            width: 100%; padding: 12px; margin-bottom: 15px; 
+            border: 1px solid #ccc; border-radius: 8px; font-family: 'Quicksand', sans-serif;
+        }
+
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 15px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background-color: var(--vinho); color: #fff; }
+        
+        .btn-zap-mini { 
+            background: #25D366; color: #fff; padding: 5px 15px; 
+            border-radius: 20px; text-decoration: none; font-size: 0.85rem; font-weight: bold; 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="admin-container">
+        <h1>Painel Administrativo</h1>
+        
+        <div class="publish-box">
+            <h2>✏️ Publicar Dica na Home</h2>
+            
+            <label>Título da Dica:</label>
+            <input type="text" id="dicaTitulo" placeholder="Ex: A importância do Tummy Time">
+            
+            <label>Conteúdo da Dica:</label>
+            <textarea id="dicaTexto" rows="4" placeholder="Escreva o texto aqui..."></textarea>
+            
+            <button type="button" onclick="publicarDica()" id="btnPublicar" class="btn" style="width: 100%; cursor: pointer; justify-content: center;">
+                Publicar Dica Agora
+            </button>
+        </div>
+
+        <hr style="margin: 30px 0; border: 0; border-top: 1px solid #eee;">
+
+        <h2 style="color: var(--vinho);">📋 Leads Capturados</h2>
+        <div id="loading">Carregando dados...</div>
+        
+        <table id="leadsTable" style="display: none;">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Nome</th>
+                    <th>Telefone</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+
+        <br><br>
+        <div style="text-align: center;">
+            <a href="index.html" class="btn btn-outline">Voltar para o Site</a>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getFirestore, collection, getDocs, orderBy, query, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+        // ⚠️⚠️⚠️ COLE SUAS CHAVES AQUI, SENÃO O BOTÃO NÃO FUNCIONA! ⚠️⚠️⚠️
+        const firebaseConfig = {
+            apiKey: "AIzaSyCaPK3FZe-GqxqypidAvxDydBUTFr9NUIUI",
+            authDomain: "michele-almeida-site.firebaseapp.com",
+            projectId: "michele-almeida-site",
+            storageBucket: "michele-almeida-site.appspot.com",
+            messagingSenderId: "987857093342",
+            appId: "1:987857093342:web:696e7cafb33774a94f784f"
+        };
+
+        let db; 
+
+        // Inicia o app e verifica se as chaves existem
+        try {
+            if (firebaseConfig.apiKey === "SUA_API_KEY_AQUI") {
+                alert("⚠️ ATENÇÃO: Você esqueceu de colocar as chaves do Firebase no código! O botão não vai funcionar.");
+            }
+            const app = initializeApp(firebaseConfig);
+            db = getFirestore(app);
+        } catch (error) {
+            console.error("Erro ao iniciar Firebase:", error);
+            alert("Erro nas configurações do Firebase. Verifique o console.");
+        }
+
+        // --- SISTEMA DE LOGIN ---
+        const jaLogado = sessionStorage.getItem("adminLogado");
+        if (!jaLogado) {
+            const senha = prompt("Digite a senha de administrador:");
+            if (senha === "michele123") { 
+                sessionStorage.setItem("adminLogado", "true");
+                carregarLeads();
+            } else {
+                alert("Senha incorreta!");
+                window.location.href = "index.html"; 
+            }
+        } else {
+            carregarLeads();
+        }
+
+        // --- FUNÇÃO DE PUBLICAR (GLOBAL) ---
+        // Agora ela está presa na janela (window) para o botão HTML achar ela
+        window.publicarDica = async function() {
+            const titulo = document.getElementById('dicaTitulo').value;
+            const texto = document.getElementById('dicaTexto').value;
+            const btn = document.getElementById('btnPublicar');
+            const textoOriginal = btn.innerText;
+
+            if (!titulo || !texto) {
+                alert("Por favor, preencha o título e o texto!");
+                return;
+            }
+
+            btn.innerText = "Publicando...";
+            btn.disabled = true;
+
+            try {
+                // Tenta salvar no banco
+                await addDoc(collection(db, "dicas"), {
+                    titulo: titulo,
+                    texto: texto,
+                    data: serverTimestamp()
+                });
+
+                alert("✅ Dica publicada com sucesso!");
+                
+                document.getElementById('dicaTitulo').value = "";
+                document.getElementById('dicaTexto').value = "";
+
+            } catch (error) {
+                console.error("Erro ao publicar:", error);
+                alert("❌ Erro ao publicar. Verifique se as Chaves do Firebase estão certas no código.");
+            } finally {
+                btn.innerText = textoOriginal;
+                btn.disabled = false;
+            }
+        }
+
+        // --- FUNÇÃO DE CARREGAR TABELA ---
+        async function carregarLeads() {
+            const tableBody = document.getElementById('tableBody');
+            const loading = document.getElementById('loading');
+            const table = document.getElementById('leadsTable');
+
+            try {
+                const q = query(collection(db, "leads"), orderBy("data", "desc"));
+                const querySnapshot = await getDocs(q);
+
+                loading.style.display = 'none';
+                table.style.display = 'table';
+                tableBody.innerHTML = ""; 
+
+                querySnapshot.forEach((doc) => {
+                    const lead = doc.data();
+                    let dataFormatada = "---";
+                    if (lead.data) {
+                        const dateObj = lead.data.toDate();
+                        dataFormatada = dateObj.toLocaleDateString('pt-BR');
+                    }
+                    
+                    let zapLink = "#";
+                    if(lead.telefone) {
+                        zapLink = `https://wa.me/55${lead.telefone.replace(/\D/g,'')}`;
+                    }
+
+                    const row = `
+                        <tr>
+                            <td>${dataFormatada}</td>
+                            <td><strong>${lead.nome || 'Sem nome'}</strong></td>
+                            <td>${lead.telefone || '---'}</td>
+                            <td><a href="${zapLink}" target="_blank" class="btn-zap-mini">Chamar</a></td>
+                        </tr>`;
+                    tableBody.innerHTML += row;
+                });
+            } catch (error) {
+                console.error(error);
+            }
+        }
+    </script>
+</body>
+</html>

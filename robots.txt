@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Indica onde está o mapa do site (SEO)
+Sitemap: https://www.michelealmeida.com.br/sitemap.xml

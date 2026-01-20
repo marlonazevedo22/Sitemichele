@@ -1,0 +1,10 @@
+# OS
+Thumbs.db
+Desktop.ini
+
+# Logs
+*.log
+
+# Build/Temp
+.tmp/
+.cache/

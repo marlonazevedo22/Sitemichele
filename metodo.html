@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Método PASSOS | Michele Almeida</title>
+    <meta name="description" content="Conheça a metodologia passo a passo para o desenvolvimento motor do seu bebê. Segurança e afeto sem neuras.">
+    
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* --- ESTILOS ESPECÍFICOS DO MÉTODO PASSOS --- */
+        
+        .method-intro {
+            text-align: center; 
+            max-width: 800px; 
+            margin: 40px auto 60px auto;
+            padding: 0 20px;
+        }
+        
+        .method-intro h1 {
+            color: var(--vinho, #8B4513);
+            margin-bottom: 15px;
+        }
+        
+        .method-intro p {
+            font-size: 1.1rem; 
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Container dos Passos */
+        .passos-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Item Individual (Letra + Texto) */
+        .passo-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 25px;
+            background: #fff;
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #eee;
+            transition: transform 0.3s;
+        }
+
+        .passo-item:hover {
+            transform: translateX(10px);
+            border-color: var(--rose, #ffe4e1);
+        }
+
+        /* A Bolinha da Letra */
+        .passo-letter-box {
+            background-color: var(--dourado, #C5A059);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            flex-shrink: 0;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        }
+
+        .passo-content h3 {
+            color: var(--vinho, #8B4513);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .passo-content p {
+            color: #555;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Box de Chamada para Ação no Final */
+        .cta-box {
+            text-align: center; 
+            margin: 80px auto 40px auto; 
+            background-color: #fff; 
+            padding: 50px 30px; 
+            border-radius: 20px; 
+            border: 2px solid var(--rose, #ffe4e1);
+            max-width: 900px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .cta-box h3 {
+            color: var(--vinho, #8B4513);
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+
+        .cta-buttons {
+            display: flex; 
+            gap: 20px; 
+            justify-content: center; 
+            flex-wrap: wrap;
+        }
+
+        /* Responsividade */
+        @media (max-width: 600px) {
+            .passo-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .passo-item:hover {
+                transform: translateY(-5px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">Michele Almeida</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="sobre.html">Quem Sou</a></li>
+                <li><a href="metodo.html" class="active">Método PASSOS</a></li>
+                <li><a href="servicos.html">Serviços</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="container">
+        
+        <div class="method-intro">
+            <h1>O Método PASSOS</h1>
+            <p>Uma metodologia única, estruturada passo a passo para garantir o desenvolvimento motor do seu bebê sem neuras.</p>
+        </div>
+
+        <div class="passos-container">
+            
+            <div class="passo-item">
+                <div class="passo-letter-box">P</div>
+                <div class="passo-content">
+                    <h3>Posições & Pegadas</h3>
+                    <p>Aprenda o manuseio seguro: como pegar, virar e realizar transições com ajustes posturais para cada fase.</p>
+                </div>
+            </div>
+
+            <div class="passo-item">
+                <div class="passo-letter-box">A</div>
+                <div class="passo-content">
+                    <h3>Ambiente & Atividades</h3>
+                    <p>Como preparar sua casa e selecionar brinquedos que favoreçam o movimento natural.</p>
+                </div>
+            </div>
+
+            <div class="passo-item">
+                <div class="passo-letter-box">S</div>
+                <div class="passo-content">
+                    <h3>Sequência de Estímulos</h3>
+                    <p>Saiba quanto tempo estimular, a ordem das atividades e como respeitar as pausas do bebê.</p>
+                </div>
+            </div>
+
+            <div class="passo-item">
+                <div class="passo-letter-box">S</div>
+                <div class="passo-content">
+                    <h3>Sensibilidade da Família</h3>
+                    <p>Identificar os sinais do bebê para criar uma conexão profunda durante os estímulos.</p>
+                </div>
+            </div>
+
+            <div class="passo-item">
+                <div class="passo-letter-box">O</div>
+                <div class="passo-content">
+                    <h3>Observação dos Marcos</h3>
+                    <p>O que observar em cada janela de desenvolvimento e quando ajustar, sem comparações.</p>
+                </div>
+            </div>
+
+            <div class="passo-item">
+                <div class="passo-letter-box">S</div>
+                <div class="passo-content">
+                    <h3>Suporte Profissional</h3>
+                    <p>Orientação direta de uma fisioterapeuta pediátrica para ajustar o plano conforme necessário.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="cta-box">
+            <h3>Como você pode começar hoje?</h3>
+            <div class="cta-buttons">
+                <button onclick="openLeadModal()" class="btn btn-outline" style="cursor: pointer;">
+                    <i class="fas fa-gift"></i> Quero o Guia Gratuito
+                </button>
+                
+                <a href="https://wa.me/5532991600039?text=Oi,%20Michele!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Mentoria." target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                    <i class="fab fa-whatsapp"></i> Quero a Mentoria Premium
+                </a>
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+        <div class="footer-container container">
+            <div class="footer-col">
+                <h3 class="logo" style="color: #fff; margin-bottom: 15px;">Michele Almeida</h3>
+                <p>Fisioterapia Pediátrica com amor, ciência e acolhimento para o desenvolvimento do seu bebê.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contato</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Juiz de Fora, MG</p>
+                <p><i class="fab fa-whatsapp"></i> (32) 99160-0039</p>
+                <p><i class="far fa-envelope"></i> michele.aalvim@gmail.com</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Acompanhe</h4>
+                <div class="social-bar" style="justify-content: flex-start;">
+                    <a href="https://www.instagram.com/Michele.aalvim" target="_blank" rel="noopener noreferrer" class="social-btn" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@fisio.michele.almeida" target="_blank" rel="noopener noreferrer" class="social-btn" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.threads.net/@michele.aalvim?igshid=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer" class="social-btn" title="Threads"><i class="fa-brands fa-threads"></i></a>
+                    <a href="https://www.youtube.com/channel/UCJGUfn0X6CtIs7t9gC2FijA" target="_blank" rel="noopener noreferrer" class="social-btn" title="Canal no YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <hr class="footer-divider">
+
+        <div class="container footer-bottom">
+            <div class="legal-info">
+                <p>&copy; 2025 Michele Almeida. Todos os direitos reservados.</p>
+                <div class="legal-links">
+                    <a href="#">Política de Privacidade</a>
+                    <span>|</span>
+                    <a href="#">Termos de Uso</a>
+                </div>
+            </div>
+
+            <div class="developer-badge">
+                <span>Desenvolvido por <strong>Marlon Douglas</strong></span>
+                <div class="dev-socials">
+                    <a href="https://www.instagram.com/marlondouglasjf?igsh=YzAxOHUzY20yYml0&utm_source=qr" target="_blank" rel="noopener noreferrer" title="Instagram do Desenvolvedor"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/marlon-azevedo-68a519156?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer" title="LinkedIn do Desenvolvedor"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="leadModal" class="modal-overlay">
+        <div class="modal-box">
+            <span class="close-modal" onclick="closeLeadModal()">&times;</span>
+            
+            <div style="text-align: center;">
+                <i class="fas fa-gift" style="font-size: 3rem; color: var(--dourado); margin-bottom: 15px;"></i>
+                <h3 style="margin-bottom: 10px;">Baixar Guia Gratuito</h3>
+                <p style="font-size: 0.9rem; color: #666; margin-bottom: 20px;">
+                    Preencha seus dados para receber o material exclusivo diretamente no seu WhatsApp.
+                </p>
+            </div>
+
+            <form onsubmit="sendLeadToWhatsapp(event)">
+                <div class="input-group">
+                    <label>Seu Nome</label>
+                    <input type="text" id="leadName" placeholder="Ex: Maria Silva" required>
+                </div>
+                
+                <div class="input-group">
+                    <label>Seu WhatsApp (com DDD)</label>
+                    <input type="tel" id="leadPhone" placeholder="Ex: 32 99999-9999" required>
+                </div>
+
+                <button type="submit" class="btn" style="width: 100%; justify-content: center; margin-top: 10px;">
+                    <i class="fab fa-whatsapp"></i> Receber Material
+                </button>
+            </form>
+            
+            <p style="font-size: 0.7rem; color: #999; text-align: center; margin-top: 15px;">
+                Seus dados estão seguros. Não enviamos spam.
+            </p>
+        </div>
+    </div>
+
+    <script type="module">
+        
+        // 1. Importando as ferramentas do Firebase (Direto da nuvem)
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+        // 2. SUAS CONFIGURAÇÕES (Copie do Console do Firebase e cole aqui!)
+        // Substitua os '...' pelos seus códigos reais
+        const firebaseConfig = {
+            apiKey: "AIzaSyCaPK3FZe-GqxqypidAvxDydBUTFr9NUIUI",
+            authDomain: "michele-almeida-site.firebaseapp.com",
+            projectId: "michele-almeida-site",
+            storageBucket: "michele-almeida-site.appspot.com",
+            messagingSenderId: "987857093342",
+            appId: "1:987857093342:web:696e7cafb33774a94f784f"
+        };
+
+        // 3. Iniciando o Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Funções de abrir e fechar Modal (Mantemos no escopo global window)
+        window.openLeadModal = function() {
+            document.getElementById('leadModal').style.display = 'flex';
+        }
+
+        window.closeLeadModal = function() {
+            document.getElementById('leadModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('leadModal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // 4. Função Poderosa: Salva no Banco e Manda pro Zap
+        window.sendLeadToWhatsapp = async function(event) {
+            event.preventDefault(); // Segura o envio padrão
+
+            // Pega os dados dos campos
+            const nome = document.getElementById('leadName').value;
+            const telefone = document.getElementById('leadPhone').value;
+            const btnSubmit = document.querySelector('button[type="submit"]');
+            const iconOriginal = btnSubmit.innerHTML;
+
+            // Muda o botão para dar feedback visual
+            btnSubmit.innerHTML = 'Salvando...';
+            btnSubmit.disabled = true;
+
+            try {
+                // A MÁGICA ACONTECE AQUI: Salva no Firebase
+                await addDoc(collection(db, "leads"), {
+                    nome: nome,
+                    telefone: telefone,
+                    data: serverTimestamp(), // Salva a data e hora exata do servidor
+                    origem: document.title // Salva de qual página veio (Serviços ou Método)
+                });
+
+                console.log("Lead salvo com sucesso!");
+
+                // Depois de salvar, prepara o WhatsApp
+                const mensagem = `Oi Michele! Meu nome é *${nome}* (${telefone}). Gostaria de receber o *Guia Inicial Gratuito* que vi no site.`;
+                const linkWhatsapp = `https://wa.me/5532991600039?text=${encodeURIComponent(mensagem)}`;
+
+                // Abre o WhatsApp
+                window.open(linkWhatsapp, '_blank', 'noopener,noreferrer');
+
+                // Fecha o modal e limpa
+                window.closeLeadModal();
+                document.getElementById('leadName').value = '';
+                document.getElementById('leadPhone').value = '';
+
+            } catch (e) {
+                console.error("Erro ao salvar no banco: ", e);
+                alert("Ops! Houve um erro ao salvar, mas vamos te levar pro WhatsApp mesmo assim.");
+                
+                // Fallback: Se o banco falhar, abre o whats igual
+                const mensagem = `Oi Michele! Meu nome é *${nome}* (${telefone}). Quero o Guia.`;
+                window.open(`https://wa.me/5532991600039?text=${encodeURIComponent(mensagem)}`, '_blank');
+            
+            } finally {
+                // Restaura o botão
+                btnSubmit.innerHTML = iconOriginal;
+                btnSubmit.disabled = false;
+            }
+        }
+    </script>
+
+    <a href="https://wa.me/5532991600039" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>

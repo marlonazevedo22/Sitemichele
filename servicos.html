@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Michele Almeida | Fisioterapia Pediátrica em Juiz de Fora</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <meta name="description" content="Especialista em desenvolvimento motor infantil. Mentoria, cursos e atendimento domiciliar em Juiz de Fora. Ajudo seu bebê a se desenvolver sem neuras.">
+    <meta name="keywords" content="fisioterapia pediátrica, desenvolvimento motor, bebê, juiz de fora, michele almeida, mentoria online">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.michelealmeida.com.br/"> <meta property="og:title" content="Michele Almeida | Fisioterapia Pediátrica">
+    <meta property="og:description" content="O desenvolvimento do seu bebê com segurança, leveza e afeto. Conheça o Método PASSOS.">
+    <meta property="og:image" content="https://seusite.com/imagem-de-compartilhamento.jpg"> <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+  /* Quando a cliente criar o Pixel no Business Manager do Facebook, 
+     ela vai receber um código numérico. Basta substituir o 'SEU-ID-AQUI' abaixo.
+  */
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  
+  // fbq('init', 'COLOCAR_ID_DO_PIXEL_AQUI'); 
+  // fbq('track', 'PageView');
+</script>
+</head>
+    <style>
+        /* --- ESTILOS ESPECÍFICOS DESTA PÁGINA (SERVIÇOS) --- */
+        
+        .services-header {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #fff;
+        }
+
+        .services-header h1 {
+            color: var(--vinho, #8B4513); /* Fallback cor marrom se a var não carregar */
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* --- GRID DE CARDS (CORRIGIDO) --- */
+        .cards-container {
+            display: flex;
+            justify-content: center; /* CENTRALIZA OS CARDS */
+            align-items: flex-start; /* Alinha o topo */
+            flex-wrap: wrap; /* Permite quebrar linha no celular */
+            gap: 30px; /* Espaço entre eles */
+            max-width: 1200px;
+            margin: 0 auto 60px auto;
+            padding: 0 20px;
+        }
+
+        /* --- ESTILO DO CARD --- */
+        .card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 15px;
+            padding: 30px 20px;
+            width: 320px; /* Largura fixa para ficarem iguais */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #C5A47E;
+        }
+
+        /* Destaque para o card do meio (Mentoria) */
+        .card-highlight {
+            border: 2px solid #C5A47E;
+            transform: scale(1.05);
+            z-index: 2;
+            background: linear-gradient(to bottom, #fff, #fffbf0);
+        }
+
+        .card-highlight:hover {
+            transform: scale(1.08);
+        }
+
+        /* Badge "Mais Procurado" */
+        .badge {
+            background-color: #C5A47E;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .card h3 {
+            color: var(--vinho, #8B4513);
+            margin-bottom: 5px;
+            font-size: 1.5rem;
+        }
+
+        .card .price, .card .price-desc {
+            display: block;
+            color: #666;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .gold-standard {
+            font-style: italic;
+            color: #8B4513;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .features {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            margin-bottom: 30px;
+            flex-grow: 1; /* Empurra o botão para baixo */
+        }
+
+        .features li {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            color: #555;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .features i {
+            color: #6B8E23; /* Verde oliva */
+            margin-top: 4px;
+        }
+
+        /* --- BOTÕES --- */
+        .btn {
+            display: block;
+            padding: 12px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: #6B8E23;
+            color: white;
+            border: none;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid #8B4513;
+            color: #8B4513;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        /* --- ESTILO ESPECIAL DO CARD DO EBOOK --- */
+        .card-ebook {
+            background: linear-gradient(135deg, #fff 0%, #fffbf0 100%);
+            border: 2px solid var(--dourado, #C5A47E);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-ebook:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(197, 164, 126, 0.3);
+        }
+
+        .ebook-ribbon {
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background-color: var(--dourado, #C5A47E);
+            color: white;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-weight: bold;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .ebook-icon {
+            background-color: rgba(197, 164, 126, 0.1);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px auto;
+        }
+
+        .ebook-icon i {
+            font-size: 2.5rem;
+            color: var(--dourado, #C5A47E);
+        }
+
+        .ebook-title {
+            display: block;
+            font-style: italic;
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        /* --- ESTILO DO FAQ (MICHELE RESPONDE) --- */
+        .faq-section {
+            background-color: #faf7f2; /* Fundo bege bem clarinho */
+            padding: 60px 20px;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+
+        .section-title {
+            color: var(--vinho, #8B4513);
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+
+        .faq-grid {
+            max-width: 800px;
+            margin: 40px auto 0 auto;
+            text-align: left;
+        }
+
+        .faq-item {
+            background: #fff;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            border-color: #C5A47E;
+        }
+
+        .faq-item summary {
+            padding: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #8B4513;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Ícone + e - */
+        .faq-item summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: #C5A47E;
+            font-weight: 300;
+        }
+
+        .faq-item[open] summary::after {
+            content: '-';
+        }
+
+        .faq-item p {
+            padding: 0 20px 20px 20px;
+            color: #555;
+            line-height: 1.6;
+            margin: 0;
+            border-top: 1px solid #f9f9f9;
+        }
+
+        /* Botão flutuante do WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* Responsividade para Mobile */
+        @media (max-width: 768px) {
+            .card-highlight {
+                transform: scale(1); /* Remove o zoom no celular para não quebrar layout */
+            }
+            .cards-container {
+                gap: 40px; /* Mais espaço entre eles no celular */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">Michele Almeida</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="sobre.html">Quem Sou</a></li>
+                <li><a href="metodo.html">Método PASSOS</a></li>
+                <li><a href="servicos.html" class="active">Serviços</a></li>
+                <li><a href="index.html#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="services-header">
+        <div class="container">
+            <h1>Como posso te ajudar hoje?</h1>
+            <p class="section-subtitle">De guias gratuitos a um acompanhamento anual completo. Escolha a melhor forma de dar segurança ao desenvolvimento do seu bebê.</p>
+        </div>
+    </section>
+
+    <section id="lista-servicos">
+        <div class="cards-container">
+            
+            <div class="card card-ebook">
+                <div class="ebook-ribbon">LANÇAMENTO</div>
+                <div class="ebook-icon">
+                    <i class="fas fa-book-reader"></i>
+                </div>
+                <h3>Ebook Completo</h3>
+                <span class="ebook-title">Desenvolvendo seu bebê<br>Sem Medo</span>
+                <span class="price" style="font-size: 1.5rem; color: var(--verde, #6B8E23); display: block; margin: 10px 0;">R$ 29,90</span>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> Marcos motores detalhados</li>
+                    <li><i class="fas fa-check"></i> Sinais de alerta</li>
+                    <li><i class="fas fa-check"></i> Atividades práticas</li>
+                    <li><i class="fas fa-check"></i> Checklist imprimível</li>
+                </ul>
+                <a href="ebook.html" class="btn btn-primary" style="width: 100%; text-align: center;">
+                    <i class="fas fa-shopping-cart"></i> Ver Detalhes
+                </a>
+            </div>
+
+            <div class="card card-highlight">
+                <div class="badge">MAIS PROCURADO</div>
+                <h3>Mentoria Premium</h3>
+                <span class="price-desc">Acompanhamento Personalizado</span>
+                <p class="gold-standard">O "Gold Standard" para seu bebê</p>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> 6 Ciclos completos (0-24 meses)</li>
+                    <li><i class="fas fa-check"></i> Consultas trimestrais online</li>
+                    <li><i class="fas fa-check"></i> Plano de Estimulação</li>
+                    <li><i class="fas fa-check"></i> WhatsApp direto comigo</li>
+                    <li><i class="fas fa-check"></i> Análise de vídeos do bebê</li>
+                </ul>
+                <a href="https://wa.me/5532991600039?text=Oi,%20Michele!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Mentoria%20Premium." target="_blank" rel="noopener noreferrer" class="btn btn-primary">Aplicar para Mentoria</a>
+            </div>
+
+            <div class="card">
+                <h3>Curso PASSOS</h3>
+                <span class="price-desc">Programa Online</span>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> Aulas gravadas passo a passo</li>
+                    <li><i class="fas fa-check"></i> Como estimular em casa</li>
+                    <li><i class="fas fa-check"></i> Acesso à comunidade</li>
+                    <li><i class="fas fa-check"></i> Suporte na plataforma</li>
+                </ul>
+                <a href="https://wa.me/5532991600039?text=Oi,%20Michele!%20Quero%20entrar%20na%20lista%20de%20espera%20do%20Curso." target="_blank" rel="noopener noreferrer" class="btn btn-outline">Lista de Espera</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Michele Responde</h2>
+            <p class="section-subtitle">Dúvidas frequentes sobre o desenvolvimento do seu bebê e meus atendimentos.</p>
+
+            <div class="faq-grid">
+                
+                <details class="faq-item">
+                    <summary>Quando devo procurar um fisioterapeuta pediátrico?</summary>
+                    <p>O ideal é buscar avaliação assim que notar qualquer atraso nos marcos motores (como não sustentar a cabeça, não rolar ou demorar a andar) ou preventivamente nos primeiros meses de vida.</p>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Como funciona a Mentoria Premium Online?</summary>
+                    <p>A mentoria acontece via videochamada. Eu analiso o ambiente da sua casa, os movimentos do bebê e ensino você a realizar os estímulos corretos no dia a dia. É um acompanhamento contínuo via WhatsApp.</p>
+                </details>
+
+                <details class="faq-item">
+                    <summary>O Curso PASSOS serve para qual idade?</summary>
+                    <p>O curso abrange desde o nascimento até a aquisição da marcha independente (andar), focado nos principais marcos motores dessa janela de desenvolvimento.</p>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Aceita plano de saúde?</summary>
+                    <p>Os atendimentos são particulares, mas emito recibo e laudo para que você possa solicitar o reembolso junto ao seu plano de saúde, caso ele ofereça essa opção.</p>
+                </details>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container container">
+            <div class="footer-col">
+                <h3 class="logo" style="color: #fff; margin-bottom: 15px;">Michele Almeida</h3>
+                <p>Fisioterapia Pediátrica com amor, ciência e acolhimento para o desenvolvimento do seu bebê.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contato</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Juiz de Fora, MG</p>
+                <p><i class="fab fa-whatsapp"></i> (32) 99160-0039</p>
+                <p><i class="far fa-envelope"></i> michele.aalvim@gmail.com</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Acompanhe</h4>
+                    <div class="social-bar" style="justify-content: flex-start;">
+                        <a href="https://www.instagram.com/Michele.aalvim" target="_blank" rel="noopener noreferrer" class="social-btn" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@fisio.michele.almeida" target="_blank" rel="noopener noreferrer" class="social-btn" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.threads.net/@michele.aalvim?igshid=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer" class="social-btn" title="Threads"><i class="fa-brands fa-threads"></i></a>
+                        <a href="https://www.youtube.com/channel/UCJGUfn0X6CtIs7t9gC2FijA" target="_blank" rel="noopener noreferrer" class="social-btn" title="Canal no YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>  
+            </div>
+        </div>
+
+        <hr class="footer-divider">
+
+        <div class="container footer-bottom">
+            
+            <div class="legal-info">
+                <p>&copy; 2025 Michele Almeida. Todos os direitos reservados.</p>
+                <div class="legal-links">
+                    <a href="privacidade.html">Política de Privacidade</a>
+                    <span>|</span>
+                    <a href="termos.html">Termos de Uso</a>
+                </div>
+            </div>
+
+            <div class="developer-badge">
+                <span>Desenvolvido por <strong>Marlon Azevedo</strong></span>
+                <div class="dev-socials">
+                    <a href="https://www.instagram.com/marlondouglasjf?igsh=YzAxOHUzY20yYml0&utm_source=qr" target="_blank" rel="noopener noreferrer" title="Instagram do Desenvolvedor"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/marlon-azevedo-68a519156?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer" title="LinkedIn do Desenvolvedor"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5532991600039" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Abrir conversa no WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <div id="leadModal" class="modal-overlay">
+        <div class="modal-box">
+            <span class="close-modal" onclick="closeLeadModal()">&times;</span>
+            
+            <div style="text-align: center;">
+                <i class="fas fa-gift" style="font-size: 3rem; color: var(--dourado); margin-bottom: 15px;"></i>
+                <h3 style="margin-bottom: 10px;">Baixar Guia Gratuito</h3>
+                <p style="font-size: 0.9rem; color: #666; margin-bottom: 20px;">
+                    Preencha seus dados para receber o material exclusivo diretamente no seu WhatsApp.
+                </p>
+            </div>
+
+            <form onsubmit="sendLeadToWhatsapp(event)">
+                <div class="input-group">
+                    <label>Seu Nome</label>
+                    <input type="text" id="leadName" placeholder="Ex: Maria Silva" required>
+                </div>
+                
+                <div class="input-group">
+                    <label>Seu WhatsApp (com DDD)</label>
+                    <input type="tel" id="leadPhone" placeholder="Ex: 32 99999-9999" required>
+                </div>
+
+                <button type="submit" class="btn" style="width: 100%; justify-content: center; margin-top: 10px;">
+                    <i class="fab fa-whatsapp"></i> Receber Material
+                </button>
+            </form>
+            
+            <p style="font-size: 0.7rem; color: #999; text-align: center; margin-top: 15px;">
+                Seus dados estão seguros. Não enviamos spam.
+            </p>
+        </div>
+    </div>
+
+    <script type="module">
+        // 1. Importando as ferramentas do Firebase (Direto da nuvem)
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+        // 2. SUAS CONFIGURAÇÕES (Copie do Console do Firebase e cole aqui!)
+        // Substitua os '...' pelos seus códigos reais
+        const firebaseConfig = {
+            apiKey: "AIzaSyCaPK3FZe-GqxqypidAvxDydBUTFr9NUIUI",
+            authDomain: "michele-almeida-site.firebaseapp.com",
+            projectId: "michele-almeida-site",
+            storageBucket: "michele-almeida-site.appspot.com",
+            messagingSenderId: "987857093342",
+            appId: "1:987857093342:web:696e7cafb33774a94f784f"
+        };
+
+        // 3. Iniciando o Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // --- MÁSCARA DE TELEFONE (UI/UX) ---
+    const phoneInput = document.getElementById('leadPhone');
+
+    phoneInput.addEventListener('input', function (e) {
+        let value = e.target.value;
+        
+        // 1. Remove tudo que não é número
+        value = value.replace(/\D/g, "");
+        
+        // 2. Limita a 11 números (DDD + 9 dígitos)
+        if (value.length > 11) value = value.slice(0, 11);
+
+        // 3. Aplica a formatação (XX) XXXXX-XXXX para deixar mais bonito o numero de telefone
+        if (value.length > 10) {
+            value = value.replace(/^(\d{2})(\d{5})(\d{4}).*/, "($1) $2-$3");
+        } else if (value.length > 5) {
+            value = value.replace(/^(\d{2})(\d{4})(\d{0,4}).*/, "($1) $2-$3");
+        } else if (value.length > 2) {
+            value = value.replace(/^(\d{2})(\d{0,5}).*/, "($1) $2");
+        }
+        
+        e.target.value = value;
+    });
+
+        // Funções de abrir e fechar Modal (Mantemos no escopo global window)
+        window.openLeadModal = function() {
+            document.getElementById('leadModal').style.display = 'flex';
+        }
+
+        window.closeLeadModal = function() {
+            document.getElementById('leadModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('leadModal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // 4. Função Poderosa: Salva no Banco e Manda pro Zap
+        window.sendLeadToWhatsapp = async function(event) {
+            event.preventDefault(); // Segura o envio padrão
+
+            // Pega os dados dos campos
+            const nome = document.getElementById('leadName').value;
+            const telefone = document.getElementById('leadPhone').value;
+            const btnSubmit = document.querySelector('button[type="submit"]');
+            const iconOriginal = btnSubmit.innerHTML;
+
+            // Muda o botão para dar feedback visual
+            btnSubmit.innerHTML = 'Salvando...';
+            btnSubmit.disabled = true;
+
+            try {
+                // A MÁGICA ACONTECE AQUI: Salva no Firebase
+                await addDoc(collection(db, "leads"), {
+                    nome: nome,
+                    telefone: telefone,
+                    data: serverTimestamp(), // Salva a data e hora exata do servidor
+                    origem: document.title // Salva de qual página veio (Serviços ou Método)
+                });
+
+                console.log("Lead salvo com sucesso!");
+
+                // Depois de salvar, prepara o WhatsApp
+                const mensagem = `Oi Michele! Meu nome é *${nome}* (${telefone}). Gostaria de receber o *Guia Inicial Gratuito* que vi no site.`;
+                const linkWhatsapp = `https://wa.me/5532991600039?text=${encodeURIComponent(mensagem)}`;
+
+                // Abre o WhatsApp
+                window.open(linkWhatsapp, '_blank', 'noopener,noreferrer');
+
+                // Fecha o modal e limpa
+                window.closeLeadModal();
+                document.getElementById('leadName').value = '';
+                document.getElementById('leadPhone').value = '';
+
+            } catch (e) {
+                console.error("Erro ao salvar no banco: ", e);
+                alert("Ops! Houve um erro ao salvar, mas vamos te levar pro WhatsApp mesmo assim.");
+                
+                // Fallback: Se o banco falhar, abre o whats igual
+                const mensagem = `Oi Michele! Meu nome é *${nome}* (${telefone}). Quero o Guia.`;
+                window.open(`https://wa.me/5532991600039?text=${encodeURIComponent(mensagem)}`, '_blank');
+            
+            } finally {
+                // Restaura o botão
+                btnSubmit.innerHTML = iconOriginal;
+                btnSubmit.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>
