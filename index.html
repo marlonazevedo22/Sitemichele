@@ -113,7 +113,7 @@
             </div>
             <div class="feature-strip__cta">
                 <a id="ebook-link" class="btn">
-                    <i class="fas fa-book"></i> Quero o ebook
+                    <i class="fas fa-arrow-right"></i> Clique e saiba mais
                 </a>
                 <span class="cta-note">Acesso imediato após a compra</span>
             </div>
@@ -157,16 +157,20 @@
         <a href="servicos.html" class="btn btn-outline">Ver Detalhes dos Serviços</a>
     </section>
 
-    <section id="dica-dinamica" class="container" style="display: none; margin-top: 40px; margin-bottom: 40px;" data-aos="zoom-in">
+    <section id="dica-dinamica" class="container" style="margin-top: 40px; margin-bottom: 40px;" data-aos="zoom-in">
         <div style="background-color: #fffbf0; border: 2px solid var(--dourado); border-radius: 15px; padding: 40px; text-align: center; position: relative;">
             <div style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); background: var(--dourado); color: white; padding: 10px 20px; border-radius: 20px; font-weight: bold; font-family: 'Cardo', serif;">
                 ✨ Dica da Michele
             </div>
-            <h3 id="tituloDica" style="margin-top: 15px; font-size: 1.8rem; color: var(--vinho);">
-                Carregando dica...
+            <h3 style="margin-top: 15px; font-size: 1.8rem; color: var(--vinho);">
+                Quer saber os marcos motores do seu bebê?
             </h3>
-            <p id="textoDica" style="font-size: 1.1rem; color: #555; max-width: 800px; margin: 20px auto 0 auto;">
+            <p style="font-size: 1.1rem; color: #555; max-width: 800px; margin: 20px auto 0 auto;">
+                No meu ebook, você descobre exatamente o que esperar em cada fase do desenvolvimento, com sinais de alerta e atividades práticas para fazer em casa. Tudo isso de forma simples e sem neuras!
             </p>
+            <a href="ebook.html" class="btn" style="margin-top: 25px; display: inline-flex;">
+                <i class="fas fa-book"></i> Conhecer o Ebook
+            </a>
         </div>
     </section>
 
@@ -222,13 +226,49 @@
     
     <section id="contato" class="contact-banner" data-aos="zoom-in">
         <div class="container">
-            <div class="contact-content">
-                <div>
+            <div class="contact-content" style="display: flex; flex-direction: column; gap: 30px;">
+                <div style="text-align: center;">
                     <h2>Vamos conversar?</h2>
                     <p>Não deixe sua dúvida virar ansiedade. Estou aqui para ouvir você.</p>
                 </div>
-                <div>
-                    <a href="https://wa.me/5532991600039" target="_blank" rel="noopener noreferrer" class="btn" style="background-color: #fff; color: var(--verde);">
+                
+                <div style="display: flex; justify-content: space-around; align-items: flex-start; flex-wrap: wrap; gap: 40px; margin-top: 20px;">
+                    <!-- Sobre Michele -->
+                    <div style="flex: 1; min-width: 250px; max-width: 350px;">
+                        <h3 style="color: #fff; margin-bottom: 15px; font-size: 1.5rem;">Michele Almeida</h3>
+                        <p style="color: rgba(255,255,255,0.9); line-height: 1.6;">
+                            Fisioterapia Pediátrica com amor, ciência e acolhimento para o desenvolvimento do seu bebê.
+                        </p>
+                    </div>
+
+                    <!-- Contato -->
+                    <div style="flex: 1; min-width: 250px; max-width: 350px;">
+                        <h4 style="color: var(--dourado); margin-bottom: 20px; font-size: 1.2rem; text-transform: uppercase;">Contato</h4>
+                        <p style="color: rgba(255,255,255,0.9); margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-map-marker-alt"></i> Juiz de Fora, MG
+                        </p>
+                        <p style="color: rgba(255,255,255,0.9); margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+                            <i class="fab fa-whatsapp"></i> (32) 99160-0039
+                        </p>
+                        <p style="color: rgba(255,255,255,0.9); display: flex; align-items: center; gap: 10px;">
+                            <i class="far fa-envelope"></i> michele.aalvim@gmail.com
+                        </p>
+                    </div>
+
+                    <!-- Acompanhe -->
+                    <div style="flex: 1; min-width: 250px; max-width: 350px;">
+                        <h4 style="color: var(--dourado); margin-bottom: 20px; font-size: 1.2rem; text-transform: uppercase;">Acompanhe</h4>
+                        <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                            <a href="https://www.instagram.com/Michele.aalvim" target="_blank" rel="noopener noreferrer" class="social-btn" title="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.tiktok.com/@fisio.michele.almeida" target="_blank" rel="noopener noreferrer" class="social-btn" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                            <a href="https://www.threads.net/@michele.aalvim?igshid=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer" class="social-btn" title="Threads"><i class="fa-brands fa-threads"></i></a>
+                            <a href="https://www.youtube.com/channel/UCJGUfn0X6CtIs7t9gC2FijA" target="_blank" rel="noopener noreferrer" class="social-btn" title="Canal no YouTube"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="https://wa.me/5532991600039" target="_blank" rel="noopener noreferrer" class="btn" style="background-color: #fff; color: var(--verde); font-size: 1.1rem; padding: 15px 40px;">
                         <i class="fab fa-whatsapp"></i> Agendar Conversa
                     </a>
                 </div>
