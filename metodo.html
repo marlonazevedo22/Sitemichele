@@ -12,114 +12,133 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
-        /* --- ESTILOS ESPECÍFICOS DO MÉTODO PASSOS --- */
+        /* --- ESTILOS PREMIUM DO MÉTODO PASSOS --- */
         
-        .method-intro {
-            text-align: center; 
-            max-width: 800px; 
-            margin: 40px auto 60px auto;
-            padding: 0 20px;
+        /* Hero Section */
+        .method-hero {
+            background: linear-gradient(135deg, var(--vinho) 0%, #58242a 100%);
+            padding: 80px 20px 60px 20px;
+            text-align: center;
+            color: white;
         }
         
-        .method-intro h1 {
-            color: var(--vinho, #8B4513);
-            margin-bottom: 15px;
+        .method-hero h1 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 20px;
+            font-family: 'Cardo', serif;
         }
         
-        .method-intro p {
-            font-size: 1.1rem; 
-            color: #666;
-            line-height: 1.6;
+        .method-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: rgba(255,255,255,0.9);
+            line-height: 1.7;
         }
 
-        /* Container dos Passos */
+        /* Container dos Passos - Grid Compacto */
         .passos-container {
-            max-width: 800px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
+            max-width: 1000px;
+            margin: -40px auto 0 auto;
+            padding: 0 20px 60px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
         }
 
-        /* Item Individual (Letra + Texto) */
+        /* Item Individual - Card Vertical Compacto */
         .passo-item {
             display: flex;
-            align-items: flex-start;
-            gap: 25px;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
             background: #fff;
-            padding: 25px;
+            padding: 30px 20px;
             border-radius: 15px;
-            border: 1px solid #eee;
-            transition: transform 0.3s;
+            border: 1px solid var(--rose);
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
         }
 
         .passo-item:hover {
-            transform: translateX(10px);
-            border-color: var(--rose, #ffe4e1);
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border-color: var(--dourado);
         }
 
-        /* A Bolinha da Letra */
+        /* Bolinha da Letra - Oval Horizontal */
         .passo-letter-box {
-            background-color: var(--dourado, #C5A059);
+            background: linear-gradient(135deg, var(--dourado) 0%, #b8944d 100%);
             color: white;
-            width: 60px;
-            height: 60px;
+            width: 90px;
+            height: 90px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
+            font-size: 2.5rem;
             font-weight: bold;
-            flex-shrink: 0;
-            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            font-family: 'Cardo', serif;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 20px rgba(197, 160, 89, 0.3);
         }
 
         .passo-content h3 {
-            color: var(--vinho, #8B4513);
-            margin-bottom: 10px;
-            font-size: 1.3rem;
+            color: var(--vinho);
+            margin-bottom: 12px;
+            font-size: 1.25rem;
+            font-family: 'Cardo', serif;
         }
 
         .passo-content p {
-            color: #555;
+            color: #666;
             line-height: 1.6;
-            margin: 0;
+            font-size: 0.95rem;
         }
 
-        /* Box de Chamada para Ação no Final */
+        /* Box CTA Premium */
         .cta-box {
-            text-align: center; 
-            margin: 80px auto 40px auto; 
-            background-color: #fff; 
-            padding: 50px 30px; 
-            border-radius: 20px; 
-            border: 2px solid var(--rose, #ffe4e1);
-            max-width: 900px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center;
+            margin: 60px auto;
+            background: linear-gradient(135deg, #fff 0%, #fffbf0 100%);
+            padding: 50px 30px;
+            border-radius: 20px;
+            border: 2px solid var(--dourado);
+            max-width: 800px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
         }
 
         .cta-box h3 {
-            color: var(--vinho, #8B4513);
+            color: var(--vinho);
             margin-bottom: 30px;
-            font-size: 1.8rem;
+            font-size: 2rem;
+            font-family: 'Cardo', serif;
         }
 
         .cta-buttons {
-            display: flex; 
-            gap: 20px; 
-            justify-content: center; 
+            display: flex;
+            gap: 20px;
+            justify-content: center;
             flex-wrap: wrap;
         }
 
         /* Responsividade */
-        @media (max-width: 600px) {
-            .passo-item {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
+        @media (max-width: 768px) {
+            .method-hero h1 {
+                font-size: 2rem;
             }
-            .passo-item:hover {
-                transform: translateY(-5px);
+            .method-hero {
+                padding: 60px 20px 40px 20px;
+            }
+            .passos-container {
+                grid-template-columns: 1fr;
+                margin-top: -30px;
+            }
+            .passo-letter-box {
+                width: 70px;
+                height: 70px;
+                font-size: 2rem;
             }
         }
     </style>
@@ -139,13 +158,12 @@
         </nav>
     </header>
 
-    <section class="container">
-        
-        <div class="method-intro">
-            <h1>O Método PASSOS</h1>
-            <p>Uma metodologia única, estruturada passo a passo para garantir o desenvolvimento motor do seu bebê sem neuras.</p>
-        </div>
+    <section class="method-hero">
+        <h1>O Método PASSOS</h1>
+        <p>Uma metodologia única, estruturada passo a passo para garantir o desenvolvimento motor do seu bebê sem neuras.</p>
+    </section>
 
+    <section class="container">
         <div class="passos-container">
             
             <div class="passo-item">
