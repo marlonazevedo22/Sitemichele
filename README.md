@@ -2,6 +2,9 @@
 
 Landing pages e site institucional para Fisioterapia Pediátrica.
 
+## 🚀 Repositório
+[https://github.com/marlonazevedo22/Sitemichele](https://github.com/marlonazevedo22/Sitemichele)
+
 ## Estrutura
 - `index.html`: Home
 - `servicos.html`: Serviços
@@ -10,22 +13,39 @@ Landing pages e site institucional para Fisioterapia Pediátrica.
 - `privacidade.html`, `termos.html`: Páginas legais
 
 ## Configurações
-- Hotmart: link configurado em `ebook.html` (const `HOTMART_LINK`) e na home para CTA do ebook.
+- Hotmart: link configurado apenas em `ebook.html` (const `HOTMART_LINK`). Outras páginas redirecionam para a LP.
 - Imagens: `mokap-ebook.jpg` (capa do ebook) e `MicheleProf.JPG` (foto).
 
 ## Desenvolvimento
-Abra com Live Server ou qualquer http server.
-
-```bash
-# Exemplo com Python
-python -m http.server 8080
-# Depois, acesse http://localhost:8080
-```
+Abra com Live Server (extensão do VS Code) ou qualquer servidor HTTP local.
 
 ## Deploy
 Publicar em qualquer host estático (Netlify, Vercel, GitHub Pages ou servidor próprio).
 - Garanta HTTPS
 - Configure redirecionamentos 404 se necessário
+
+### Deploy rápido com Netlify
+```bash
+# Instale o CLI (se ainda não tiver)
+npm install -g netlify-cli
+
+# Deploy direto da pasta
+netlify deploy --prod
+```
+
+### Deploy com Vercel
+```bash
+# Instale o CLI
+npm install -g vercel
+
+# Deploy
+vercel --prod
+```
+
+### GitHub Pages
+1. Vá em Settings → Pages
+2. Escolha branch `main` e pasta `/` (root)
+3. Site estará em `https://marlonazevedo22.github.io/Sitemichele/`
 
 ## Boas práticas
 - Links externos com `rel="noopener noreferrer"`

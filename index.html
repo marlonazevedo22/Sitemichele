@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#722F37">
     
     <title>Michele Almeida | Fisioterapia Pediátrica em Juiz de Fora</title>
-    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="icon" href="favicon.png.png" type="image/png">
     <meta name="description" content="Especialista em desenvolvimento motor infantil. Mentoria, cursos e atendimento domiciliar em Juiz de Fora. Ajudo seu bebê a se desenvolver sem neuras.">
     <meta name="keywords" content="fisioterapia pediátrica, desenvolvimento motor, bebê, juiz de fora, michele almeida, mentoria online">
 
@@ -112,10 +112,10 @@
                 <p>Um passo a passo simples, com atividades seguras e sem neura para cada fase do desenvolvimento motor.</p>
             </div>
             <div class="feature-strip__cta">
-                <a id="ebook-link" class="btn" target="_blank" rel="noopener noreferrer">
+                <a id="ebook-link" class="btn">
                     <i class="fas fa-book"></i> Quero o ebook
                 </a>
-                <span class="cta-note">Pagamento seguro via Hotmart</span>
+                <span class="cta-note">Acesso imediato após a compra</span>
             </div>
         </div>
     </section>
@@ -265,9 +265,9 @@
             <div class="legal-info">
                 <p>&copy; 2026 Michele Almeida. Todos os direitos reservados.</p>
                 <div class="legal-links">
-                    <a href="#">Política de Privacidade</a>
+                    <a href="privacidade.html">Política de Privacidade</a>
                     <span>|</span>
-                    <a href="#">Termos de Uso</a>
+                    <a href="termos.html">Termos de Uso</a>
                 </div>
             </div>
 
@@ -324,34 +324,39 @@
             }
         }
         carregarDicaSemana();
-
-        
     </script>
 
 <script>
-        // Iniciar Animações (AOS)
-        AOS.init({
-            duration: 1000,
-            once: true,
-        });
+        // Aguardar o carregamento completo da página antes de inicializar
+        window.addEventListener('DOMContentLoaded', function() {
+            // Iniciar Animações (AOS)
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 1000,
+                    once: true,
+                });
+            }
 
-        var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 1,
-            spaceBetween: 30,
-            loop: true,
-            // centeredSlides: true,  <--- REMOVA ESSA LINHA SE ELA EXISTIR!
-            
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-            
-            pagination: { el: ".swiper-pagination", clickable: true },
-            
-            breakpoints: {
-                768: { slidesPerView: 2 },
-                1024: { slidesPerView: 3 }, 
-            },
+            // Inicializar Swiper
+            if (typeof Swiper !== 'undefined') {
+                var swiper = new Swiper(".mySwiper", {
+                    slidesPerView: 1,
+                    spaceBetween: 30,
+                    loop: true,
+                    
+                    navigation: {
+                        nextEl: ".swiper-button-next",
+                        prevEl: ".swiper-button-prev",
+                    },
+                    
+                    pagination: { el: ".swiper-pagination", clickable: true },
+                    
+                    breakpoints: {
+                        768: { slidesPerView: 2 },
+                        1024: { slidesPerView: 3 }, 
+                    },
+                });
+            }
         });
 
         // Cookies
@@ -363,17 +368,10 @@
             document.getElementById('cookie-banner').style.display = 'flex';
         }
 
-        // Hotmart ebook link (substitua pela URL final)
-        const hotmartEbookUrl = 'https://pay.hotmart.com/H103855095D'; // Link oficial do produto na Hotmart
+        // Link para Landing Page do Ebook
         const ebookAnchor = document.getElementById('ebook-link');
-        if (hotmartEbookUrl && ebookAnchor) {
-            ebookAnchor.href = hotmartEbookUrl;
-        } else if (ebookAnchor) {
-            ebookAnchor.href = '#ebook';
-            ebookAnchor.setAttribute('aria-disabled', 'true');
-            ebookAnchor.style.opacity = '0.7';
-            ebookAnchor.style.pointerEvents = 'none';
-            ebookAnchor.title = 'Aguardando o link do Hotmart';
+        if (ebookAnchor) {
+            ebookAnchor.href = 'ebook.html';
         }
     </script>
 </body>
