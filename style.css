@@ -37,6 +37,39 @@ h1, h2, h3, h4 {
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* Animação personalizada para textos da hero */
+@keyframes fadeInUp {
+    from { 
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-text {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-text.delay-1 {
+    animation-delay: 0.3s;
+}
+
+.animate-text.delay-2 {
+    animation-delay: 0.6s;
+}
+
+.animate-text.delay-3 {
+    animation-delay: 0.9s;
+}
+
+.animate-text.delay-4 {
+    animation-delay: 1.2s;
+}
+
 /* Aplica animação nas seções principais */
 header, section, footer {
     animation: fadeIn 0.8s ease-out forwards;
@@ -220,12 +253,16 @@ nav a:hover, nav a.active {
 
 .hero-subtitle {
     font-size: 1.15rem;
-    margin-bottom: 0;
+    margin-bottom: 25px;
     color: var(--texto-escuro);
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
     line-height: 1.5;
+}
+
+.hero-text .btn {
+    margin-top: 10px;
 }
 
 /* Ícones sociais na parte inferior */
@@ -367,28 +404,28 @@ nav a:hover, nav a.active {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     
-    /* NORMAL: Fundo "vazio", Borda Vinho, Ícone Vinho */
-    background-color: transparent; 
-    border: 1px solid var(--vinho); 
+    /* Desktop: Fundo transparente, Borda e Ícone Vinho */
+    background-color: rgba(255, 255, 255, 0.9); 
+    border: 2px solid var(--vinho); 
     color: var(--vinho);            
     
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     text-decoration: none;
     transition: all 0.3s ease;
-    margin-right: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* HOVER: Fundo Vinho, Ícone Branco, Borda da cor do site */
+/* HOVER: Fundo Vinho, Ícone Branco */
 .hero-social-btn:hover {
-    background-color: var(--vinho);   /* Preenche de Vinho */
-    color: #fff;                      /* Ícone Branco */
-    border-color: var(--off-white);   /* Borda vira a cor do fundo (parece que sumiu) */
-    transform: translateY(-3px);      /* Efeito de subir */
-    box-shadow: 0 4px 10px rgba(114, 47, 55, 0.4); /* Sombra vinho */
+    background-color: var(--vinho);
+    color: #fff;
+    border-color: var(--vinho);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(114, 47, 55, 0.4);
 }
 
 .card h3 { margin-bottom: 10px; font-size: 1.5rem; color: var(--vinho); }
@@ -592,7 +629,7 @@ footer {
     .hero {
         min-height: 100vh;
         justify-content: flex-end;
-        padding-bottom: 30px;
+        padding-bottom: 20px;
     }
     
     .hero-bg-img {
@@ -604,7 +641,7 @@ footer {
     }
     
     .hero-content {
-        padding: 20px 5% 0 5%;
+        padding: 20px 5% 20px 5%;
     }
     
     .hero-text {
@@ -627,18 +664,38 @@ footer {
         color: #fff;
         font-size: 1.05rem;
         line-height: 1.5;
+        margin-bottom: 20px;
+    }
+    
+    /* Botão do WhatsApp no mobile */
+    .hero-text .btn {
+        margin-top: 10px;
+        display: inline-flex;
     }
     
     .hero-social-bottom {
-        background: rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(10px);
         padding: 25px 5%;
         border-radius: 20px 20px 0 0;
+        box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
     }
     
     .social-label {
-        color: #fff;
+        color: var(--vinho);
         font-size: 0.9rem;
+        font-weight: 700;
+    }
+    
+    /* Ícones sociais mais visíveis no mobile */
+    .hero-social-btn {
+        width: 55px;
+        height: 55px;
+        font-size: 1.5rem;
+        background-color: #fff;
+        border: 2px solid var(--vinho);
+        color: var(--vinho);
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
     }
     
     /* Ajustes gerais */
