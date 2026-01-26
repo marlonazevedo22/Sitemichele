@@ -60,7 +60,12 @@
 
     <header>
         <a href="index.html" class="logo">Michele Almeida</a>
-        <nav>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="mainNav">
             <ul>
                 <li><a href="index.html" class="active">Início</a></li>
                 <li><a href="sobre.html">Quem Sou</a></li>
@@ -71,36 +76,37 @@
         </nav>
     </header>
 
-    <section class="hero container">
-        <div class="hero-text" data-aos="fade-right">
-            <h1>O desenvolvimento do seu bebê com segurança, leveza e afeto.</h1>
-            <p>Ajudando mães a transformarem dúvidas em conexão e descobertas em cada etapa do desenvolvimento motor.</p>
-            
-            <a href="https://wa.me/5532991600039" target="_blank" rel="noopener noreferrer" class="btn">
-                <i class="fab fa-whatsapp"></i> Falar com a Michele
-            </a>
-            
-            <div style="margin-top: 30px; font-size: 0.9rem;">
-                <p style="margin-bottom: 10px; font-weight: bold; color: var(--texto-escuro);">Acompanhe também:</p>
-
-                <div class="hero-social-container">
-                    <a href="https://www.instagram.com/Michele.aalvim" target="_blank" rel="noopener noreferrer" class="hero-social-btn" title="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://www.tiktok.com/@fisio.michele.almeida" target="_blank" rel="noopener noreferrer" class="hero-social-btn" title="TikTok">
-                        <i class="fab fa-tiktok"></i>
-                    </a>
-                    <a href="https://www.threads.net/@michele.aalvim?igshid=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer" class="hero-social-btn" title="Threads">
-                        <i class="fa-brands fa-threads"></i>
-                    </a>
-                    <a href="https://www.youtube.com/channel/UCJGUfn0X6CtIs7t9gC2FijA" target="_blank" rel="noopener noreferrer" class="hero-social-btn" title="YouTube">
-                        <i class="fab fa-youtube"></i>
-                    </a>
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <img src="blackmichele.jpeg" alt="Michele Almeida" class="hero-bg-img" fetchpriority="high">
+        <div class="hero-content">
+            <div class="hero-text" data-aos="fade-up">
+                <p class="hero-greeting">Olá, sou a</p>
+                <h1>Michele Almeida</h1>
+                <p class="hero-subtitle">Eu lidero mulheres a se tornarem mães sem medo e sem neuras, através das melhores versões únicas de cada filho e família e afeto.</p>
+                
+                <a href="https://wa.me/5532991600039" target="_blank" rel="noopener noreferrer" class="btn">
+                    <i class="fab fa-whatsapp"></i> Falar com a Michele
+                </a>
+                
+                <div class="hero-social-wrapper">
+                    <p class="social-label">Acompanhe também:</p>
+                    <div class="hero-social-container">
+                        <a href="https://www.instagram.com/Michele.aalvim" target="_blank" rel="noopener noreferrer" class="hero-social-btn" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@fisio.michele.almeida" target="_blank" rel="noopener noreferrer" class="hero-social-btn" title="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://www.threads.net/@michele.aalvim?igshid=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer" class="hero-social-btn" title="Threads">
+                            <i class="fa-brands fa-threads"></i>
+                        </a>
+                        <a href="https://www.youtube.com/channel/UCJGUfn0X6CtIs7t9gC2FijA" target="_blank" rel="noopener noreferrer" class="hero-social-btn" title="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="hero-img" data-aos="fade-left">
-            <img src="MicheleProf.JPG" alt="Michele Almeida com bebê" fetchpriority="high">
         </div>
     </section>
 
@@ -376,6 +382,37 @@
         const ebookAnchor = document.getElementById('ebook-link');
         if (ebookAnchor) {
             ebookAnchor.href = 'ebook.html';
+        }
+
+        // Menu Hambúrguer Mobile
+        const menuToggle = document.getElementById('menuToggle');
+        const mainNav = document.getElementById('mainNav');
+        
+        if (menuToggle && mainNav) {
+            menuToggle.addEventListener('click', function() {
+                menuToggle.classList.toggle('active');
+                mainNav.classList.toggle('active');
+            });
+            
+            // Fechar menu ao clicar em um link
+            const navLinks = mainNav.querySelectorAll('a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    menuToggle.classList.remove('active');
+                    mainNav.classList.remove('active');
+                });
+            });
+            
+            // Fechar menu ao clicar fora dele
+            document.addEventListener('click', function(event) {
+                const isClickInsideNav = mainNav.contains(event.target);
+                const isClickOnToggle = menuToggle.contains(event.target);
+                
+                if (!isClickInsideNav && !isClickOnToggle && mainNav.classList.contains('active')) {
+                    menuToggle.classList.remove('active');
+                    mainNav.classList.remove('active');
+                }
+            });
         }
     </script>
 </body>

@@ -49,7 +49,7 @@ section { padding: 60px 5%; }
 /* --- Navegação --- */
 header { 
     background-color: #fff; 
-    padding: 20px 5%; 
+    padding: 15px 5%; 
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
@@ -65,6 +65,41 @@ header {
     color: var(--vinho); 
     text-decoration: none; 
     letter-spacing: 1px; 
+}
+
+/* Botão Hambúrguer (escondido no desktop) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.menu-toggle span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--vinho);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Animação do X quando menu está aberto */
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
 }
 
 nav ul { list-style: none; display: flex; gap: 30px; }
@@ -114,25 +149,101 @@ nav a:hover, nav a.active {
     color: #fff;
 }
 
-/* --- Hero Section --- */
+/* --- Hero Section (Fullscreen Mobile com foto de fundo) --- */
 .hero { 
-    display: flex; 
-    align-items: center; 
-    justify-content: space-between; 
-    min-height: 80vh; 
-    gap: 40px; 
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+    overflow: hidden;
+    padding: 0;
 }
-.hero-social-container { display: flex; gap: 12px; flex-wrap: wrap; }
-.hero-text { flex: 1; }
-.hero-text h1 { font-size: 3rem; margin-bottom: 20px; line-height: 1.2; }
-.hero-text p { font-size: 1.2rem; margin-bottom: 30px; color: var(--texto-escuro); }
-.hero-img { flex: 1; position: relative; }
-.hero-img img { 
-    width: 100%; 
-    border-radius: 150px 150px 20px 20px; 
-    border: 3px solid var(--rose); 
-    box-shadow: 10px 10px 0px var(--dourado); 
-    object-fit: cover; 
+
+/* Imagem de fundo (escondida no desktop) */
+.hero-bg-img {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+}
+
+/* Overlay escuro sobre a imagem */
+.hero-overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(114, 47, 55, 0.6));
+    z-index: 1;
+}
+
+/* Container do conteúdo */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-text { 
+    flex: 1;
+    text-align: center;
+}
+
+.hero-greeting {
+    font-size: 1.2rem;
+    color: var(--texto-escuro);
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+.hero-text h1 { 
+    font-size: 3rem;
+    margin-bottom: 15px;
+    line-height: 1.2;
+    color: var(--vinho);
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: var(--texto-escuro);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Wrapper das redes sociais */
+.hero-social-wrapper {
+    margin-top: 40px;
+}
+
+.social-label {
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: var(--texto-escuro);
+    font-size: 0.95rem;
+}
+
+.hero-social-container { 
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 /* --- Faixa do Ebook --- */
@@ -429,12 +540,86 @@ footer {
 }
 .whatsapp-float:hover { transform: scale(1.1); background-color: #20ba5a; }
 
-/* --- Responsividade --- */
+/* --- Responsividade Mobile --- */
 @media (max-width: 768px) {
-    header { flex-direction: column; gap: 15px; padding: 15px; }
-    nav ul { flex-direction: column; gap: 10px; text-align: center; width: 100%; }
-    .hero { flex-direction: column-reverse; text-align: center; }
-    .hero-text h1 { font-size: 2rem; }
+    /* Menu hambúrguer aparece */
+    .menu-toggle {
+        display: flex;
+    }
+    
+    /* Menu escondido por padrão */
+    nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background-color: #fff;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        transition: right 0.3s ease;
+        padding-top: 80px;
+        z-index: 999;
+    }
+    
+    /* Menu aberto */
+    nav.active {
+        right: 0;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 0;
+        padding: 20px;
+    }
+    
+    nav ul li {
+        border-bottom: 1px solid var(--rose);
+    }
+    
+    nav ul li a {
+        display: block;
+        padding: 15px 10px;
+        border-bottom: none !important;
+    }
+    
+    /* Hero fullscreen no mobile */
+    .hero {
+        min-height: 100vh;
+    }
+    
+    .hero-bg-img {
+        display: block;
+    }
+    
+    .hero-overlay {
+        display: block;
+    }
+    
+    .hero-text {
+        color: #fff;
+        text-align: center;
+    }
+    
+    .hero-greeting {
+        color: #fff;
+        font-size: 1rem;
+    }
+    
+    .hero-text h1 {
+        font-size: 2.5rem;
+        color: #fff;
+    }
+    
+    .hero-subtitle {
+        color: #fff;
+        font-size: 1.1rem;
+    }
+    
+    .social-label {
+        color: #fff;
+    }
+    
+    /* Ajustes gerais */
     .card-highlight { transform: scale(1); }
     .passo-item { flex-direction: column; text-align: center; }
     .passo-letter-box { width: 100%; height: 60px; min-height: auto; }
@@ -551,5 +736,52 @@ footer {
     /* E escondemos as setas */
     .swiper-button-next, .swiper-button-prev {
         display: none !important; 
+    }
+}
+
+/* --- DESKTOP: Layout tradicional com imagem ao lado --- */
+@media (min-width: 769px) {
+    .hero {
+        min-height: 85vh;
+    }
+    
+    .hero-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+    }
+    
+    .hero-text {
+        text-align: left;
+    }
+    
+    .hero-text h1 {
+        font-size: 3.2rem;
+    }
+    
+    .hero-greeting {
+        font-size: 1.3rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.25rem;
+        margin-left: 0;
+    }
+    
+    .hero-social-container {
+        justify-content: flex-start;
+    }
+    
+    /* Imagem ao lado no desktop */
+    .hero-content::after {
+        content: '';
+        background-image: url('blackmichele.jpeg');
+        background-size: cover;
+        background-position: center;
+        border-radius: 200px 200px 30px 30px;
+        border: 4px solid var(--rose);
+        box-shadow: 15px 15px 0px var(--dourado);
+        min-height: 600px;
     }
 }
