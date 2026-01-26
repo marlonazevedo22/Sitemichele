@@ -685,7 +685,8 @@ footer {
         transform: translateY(0);
     }
     
-    .hero-social-bottom {
+    /* No mobile, hero-social-bottom fica fixo na parte inferior */
+    .hero-text .hero-social-bottom {
         position: fixed;
         bottom: -150px;
         left: 0;
@@ -697,9 +698,11 @@ footer {
         box-shadow: 0 -3px 15px rgba(0, 0, 0, 0.15);
         transition: bottom 0.5s ease;
         z-index: 100;
+        margin-top: 0;
+        text-align: center;
     }
     
-    .hero-social-bottom.show {
+    .hero-text .hero-social-bottom.show {
         bottom: 0;
     }
     
@@ -708,6 +711,10 @@ footer {
         font-size: 0.85rem;
         font-weight: 700;
         margin-bottom: 10px;
+    }
+    
+    .hero-social-container {
+        justify-content: center;
     }
     
     /* Ícones sociais mais visíveis no mobile */
@@ -875,8 +882,14 @@ footer {
         margin-left: 0;
     }
     
-    /* Ícones sociais no desktop - abaixo do conteúdo principal */
-    .hero-social-bottom {
+    /* No desktop, botão e ícones aparecem normalmente */
+    .hero-text .btn {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    /* Ícones sociais no desktop - abaixo do botão WhatsApp */
+    .hero-text .hero-social-bottom {
         position: relative;
         bottom: auto;
         left: auto;
@@ -885,20 +898,22 @@ footer {
         padding: 0;
         background: transparent;
         box-shadow: none;
-        text-align: center;
-        margin-top: 30px;
+        text-align: left;
+        margin-top: 25px;
+        transition: none;
     }
     
     .social-label {
         display: block;
         color: var(--texto-escuro);
-        font-size: 0.95rem;
+        font-size: 0.9rem;
         margin-bottom: 15px;
+        font-weight: 600;
     }
     
     .hero-social-container {
-        justify-content: center;
-        gap: 15px;
+        justify-content: flex-start;
+        gap: 12px;
     }
     
     /* Ícones sociais desktop - estilo original */
