@@ -629,7 +629,7 @@ footer {
     .hero {
         min-height: 100vh;
         justify-content: flex-end;
-        padding-bottom: 20px;
+        padding-bottom: 0;
     }
     
     .hero-bg-img {
@@ -641,7 +641,11 @@ footer {
     }
     
     .hero-content {
-        padding: 20px 5% 20px 5%;
+        padding: 0 5%;
+        position: absolute;
+        bottom: 180px;
+        left: 0;
+        right: 0;
     }
     
     .hero-text {
@@ -651,51 +655,70 @@ footer {
     
     .hero-greeting {
         color: #fff;
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
     
     .hero-text h1 {
-        font-size: 2.2rem;
+        font-size: 2rem;
         color: #fff;
-        margin-bottom: 12px;
+        margin-bottom: 10px;
     }
     
     .hero-subtitle {
         color: #fff;
-        font-size: 1.05rem;
+        font-size: 1rem;
         line-height: 1.5;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
     
-    /* Botão do WhatsApp no mobile */
+    /* Botão do WhatsApp no mobile - escondido inicialmente */
     .hero-text .btn {
         margin-top: 10px;
         display: inline-flex;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    
+    .hero-text .btn.show {
+        opacity: 1;
+        transform: translateY(0);
     }
     
     .hero-social-bottom {
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        padding: 25px 5%;
+        position: fixed;
+        bottom: -150px;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(8px);
+        padding: 15px 5%;
         border-radius: 20px 20px 0 0;
-        box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 -3px 15px rgba(0, 0, 0, 0.15);
+        transition: bottom 0.5s ease;
+        z-index: 100;
+    }
+    
+    .hero-social-bottom.show {
+        bottom: 0;
     }
     
     .social-label {
         color: var(--vinho);
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         font-weight: 700;
+        margin-bottom: 10px;
     }
     
     /* Ícones sociais mais visíveis no mobile */
     .hero-social-btn {
-        width: 55px;
-        height: 55px;
-        font-size: 1.5rem;
+        width: 50px;
+        height: 50px;
+        font-size: 1.4rem;
         background-color: #fff;
         border: 2px solid var(--vinho);
         color: var(--vinho);
-        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     }
     
     /* Ajustes gerais */
@@ -860,10 +883,27 @@ footer {
         transform: translateX(-50%);
         width: auto;
         padding: 0;
+        background: transparent;
+        box-shadow: none;
     }
     
     .hero-social-container {
         justify-content: center;
+    }
+    
+    /* Ícones sociais desktop - estilo original */
+    .hero-social-btn {
+        background-color: rgba(255, 255, 255, 0.9);
+        border: 2px solid var(--vinho);
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+    }
+    
+    .hero-social-btn:hover {
+        background-color: var(--vinho);
+        color: #fff;
+        transform: translateY(-3px);
     }
     
     /* Imagem ao lado no desktop */

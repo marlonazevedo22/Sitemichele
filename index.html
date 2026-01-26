@@ -413,6 +413,21 @@
                 }
             });
         }
+
+        // Revelar botão WhatsApp e redes sociais ao rolar no mobile
+        if (window.innerWidth <= 768) {
+            const whatsappBtn = document.querySelector('.hero-text .btn');
+            const socialBottom = document.querySelector('.hero-social-bottom');
+            let hasScrolled = false;
+
+            window.addEventListener('scroll', function() {
+                if (!hasScrolled && window.scrollY > 100) {
+                    hasScrolled = true;
+                    if (whatsappBtn) whatsappBtn.classList.add('show');
+                    if (socialBottom) socialBottom.classList.add('show');
+                }
+            });
+        }
     </script>
 </body>
 </html>
